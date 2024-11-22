@@ -1,11 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success justify-content-center">
 
 <a class="navbar-brand main-heading" href="{% url '' %}"> 
-        
     &nbsp; TaskManager
-
 </a>
-
 
 <button
     class="navbar-toggler"
@@ -17,62 +14,47 @@
     aria-label="Toggle navigation"
 >
     <span class="navbar-toggler-icon"></span>
-
 </button>
 
-
-    <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-
-    
+<div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
+    &nbsp; &nbsp; &nbsp;
 
-
-        &nbsp;     &nbsp;     &nbsp; 
-
-        {% if user.is_authenticated %}
-
+    {% if user.is_authenticated %}
         <li class="nav-item">
-    
-            <a class="nav-link" href="{% url 'dashboard' %}">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
-
+        <a class="nav-link" href="{% url 'dashboard' %}">
+            Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i>
+        </a>
         </li>
 
+        &nbsp; &nbsp; &nbsp;
 
-        &nbsp;     &nbsp;     &nbsp; 
-
-
+        {% if user.is_superuser %}
         <li class="nav-item">
-
-            <a class="nav-link" href="{% url 'user-logout' %}">Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
-
+            <a class="nav-link" href="{% url 'admin:index' %}">
+            Admin Panel &nbsp; <i class="fa fa-cog" aria-hidden="true"></i>
+            </a>
         </li>
 
+        &nbsp; &nbsp; &nbsp;
+        {% endif %}
 
-    </ul>
-
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'user-logout' %}">
+            Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
+        </li>
     {% else %}
-
-    <li class="nav-item">
-
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'register' %}"> Register </a>
+        </li>
 
-    </li>
+        &nbsp; &nbsp; &nbsp;
 
-
-    &nbsp;     &nbsp;     &nbsp; 
-
-
-    <li class="nav-item">
-
+        <li class="nav-item">
         <a class="nav-link" href="{% url 'my-login' %}">Login</a>
-
-    </li>
-
-
+        </li>
     {% endif %}
-    
-    
-    </div>
-
-
+    </ul>
+</div>
 </nav>
