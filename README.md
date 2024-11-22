@@ -45,3 +45,4 @@ A simple, user-friendly task management system built with Django and HTML. Users
 ### **Set virtual enviroment:**
   python -m venv venv
   source venv/bin/activate    # On Windows: venv\Scripts\activate
+  Now after finish setup use command to run python manage.py runserver
