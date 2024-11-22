@@ -1,0 +1,60 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome, {{user}}! 👋 </h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-task' %}">
+
+        Create a new task &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr> 
+
+    <table class="table table-hover table-bordered">
+
+        <thead class="table-light">
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Title </th>
+                <th scope="col"> Description </th>
+                <th scope="col"> View</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if tasks %}
+
+            {% for task in tasks %}
+
+            <tr>
+
+                <td> {{task.id}} </td>
+
+                <td> {{task.title_task}} </td>
+
+                <td> {{task.description_task}} </td>
+
+                <td> <a class="btn btn-success btn-sm" href="{% url 'task' task.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+
+            </tr>
+
+            {% endfor %}
+        
+        {% endif %}
+
+
+        </tbody>
+
+
+    </table>
+
+
+{% endblock %}
